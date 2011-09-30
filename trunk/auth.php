@@ -1,4 +1,4 @@
-<?
+<?php 
 # create a session cookie
 session_start();
 

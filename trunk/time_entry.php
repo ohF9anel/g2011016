@@ -1,4 +1,4 @@
-<?
+<?php 
 include('auth.php');
 $results = mysql_query("select * from time_data where user_id = $timeapp_id order by data_date desc limit $time_entry_display_rows;");
 ?>
@@ -6,11 +6,11 @@ $results = mysql_query("select * from time_data where user_id = $timeapp_id orde
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Time Entry</h1>
 <h2><a href="add_entry.php">Add Entry</a></h2>
 <table id="box-table-a">
@@ -24,7 +24,7 @@ $results = mysql_query("select * from time_data where user_id = $timeapp_id orde
 		<th>Notes</th>
 		<th>Action</th>
 	</tr>
-<?
+<?php 
 	if($row = mysql_fetch_array($results)){
 		do{
 			$data_date = $row['data_date'];
@@ -34,25 +34,25 @@ $results = mysql_query("select * from time_data where user_id = $timeapp_id orde
 			
 ?>
 	<tr>
-		<td><?=date('m/d/Y', strtotime($data_date))?></td>
-		<td><?=$trow['description']?></td>
-		<td><?=$row['hours']?></td>
-		<td><?=$row['notes']?></td>
-		<td><a href="edit_entry.php?time_id=<?=$row['time_id']?>">Edit</a>
-		&nbsp;<a href="delete_entry.php?time_id=<?=$row['time_id']?>">Delete</a>
+		<td><?php  echo date('m/d/Y', strtotime($data_date))?></td>
+		<td><?php  echo $trow['description']?></td>
+		<td><?php  echo $row['hours']?></td>
+		<td><?php  echo $row['notes']?></td>
+		<td><a href="edit_entry.php?time_id=<?php  echo $row['time_id']?>">Edit</a>
+		&nbsp;<a href="delete_entry.php?time_id=<?php  echo $row['time_id']?>">Delete</a>
 		</td>
 	</tr>
-<?
+<?php 
 		}while($row = mysql_fetch_array($results));
 	}else{
 ?>
 	<tr>
 		<td align="center" colspan="100%">Currently no time entry on file.</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 </table>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	$err = '';
 	if(isset($_POST['submit'])){
@@ -30,48 +30,48 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Editing User</h1>
 <form method="post" action="edit_user.php">
 <table id="box-table-a">
-<? if(strlen($err) > 0){ ?>
+<?php  if(strlen($err) > 0){ ?>
 <tr>
-	<td align="center" colspan="100%"><?=$err?></td>
+	<td align="center" colspan="100%"><?php  echo $err?></td>
 </tr>
-<? } ?>
+<?php  } ?>
 <tr>
-	<td>First Name:&nbsp;</td><td><input type="text" name="fname" size="30" value="<?=$row['fname']?>"></td>
+	<td>First Name:&nbsp;</td><td><input type="text" name="fname" size="30" value="<?php  echo $row['fname']?>"></td>
 </tr>
 <tr>
-	<td>Last Name:&nbsp;</td><td><input type="text" name="lname" size="30" value="<?=$row['lname']?>"></td>
+	<td>Last Name:&nbsp;</td><td><input type="text" name="lname" size="30" value="<?php  echo $row['lname']?>"></td>
 </tr>
 <tr>
 	<td>Access Level:&nbsp;</td>
 	<td>
 		<select name="access_level">
-			<option value="<?=$row['level']?>" selected><?=$row['level']?></option>
+			<option value="<?php  echo $row['level']?>" selected><?php  echo $row['level']?></option>
 			<option value="Administrator">Administrator</option>
 			<option value="User">User</option>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td>Username:&nbsp;</td><td><input type="text" name="u_name" size="30" value="<?=$row['username']?>"></td>
+	<td>Username:&nbsp;</td><td><input type="text" name="u_name" size="30" value="<?php  echo $row['username']?>"></td>
 </tr>
 <tr>
-	<td>Password:&nbsp;</td><td><input type="text" name="user_password" size="30" value="<?=$row['password']?>"></td>
+	<td>Password:&nbsp;</td><td><input type="text" name="user_password" size="30" value="<?php  echo $row['password']?>"></td>
 </tr>
 <tr>
-	<td><input type="hidden" name="user_id" value="<?=$user_id?>"></td>
+	<td><input type="hidden" name="user_id" value="<?php  echo $user_id?>"></td>
 	<td><input type="submit" name="submit" value="Update" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 </tr>
 </table>
 
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

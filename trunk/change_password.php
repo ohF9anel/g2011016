@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	$err = '';
 	if(isset($_POST['submit'])){
@@ -27,20 +27,20 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Change Password</h1>
 <form method="post" action="change_password.php">
 <table id="box-table-a">
-<? if(strlen($err) > 1){ ?>
+<?php  if(strlen($err) > 1){ ?>
 	<tr>
-		<td colspan="100%" align="center"><?=$err?></td>
+		<td colspan="100%" align="center"><?php  echo $err?></td>
 	</tr>
-<? } ?>
+<?php  } ?>
 	<tr>
 		<td>Old Password:&nbsp;</td>
 		<td><input type="text" name="old_password" size="30"></td>
@@ -53,11 +53,11 @@
 		<td>Confirm New Password:&nbsp;</td>
 		<td><input type="text" name="confirm_new_password" size="30"></td>
 	</tr>
-		<td><input type="hidden" name="user_id" value="<?=$user_id?>"></td>
+		<td><input type="hidden" name="user_id" value="<?php  echo $user_id?>"></td>
 		<td><input type="submit" name="submit" value="Update" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>			
+<?php  include('footer.php')?>			
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	$results = mysql_query("select * from user_info order by lname");
@@ -7,12 +7,12 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Users</h1>
 
 <p><a href="add_user.php">Add User</a> | <a href="index.php">Exit</a></p>
@@ -26,32 +26,32 @@
 	<th>Password</th>
 	<th colspan="2" align="center">Action</th>
 </tr>
-<?
+<?php 
 if($row = mysql_fetch_array($results)){
 	do{
 		
 ?>
 <tr>
-	<td><?=$row['user_id']?></td>
-	<td><?=$row['lname']?>, <?=$row['fname']?></td>
-	<td><?=$row['level']?></td>
-	<td><?=$row['username']?>&nbsp;</td>
-	<td><?=$row['password']?>&nbsp;</td>
-	<td><a href="edit_user.php?user_id=<?=$row['user_id']?>">Edit</a></td>
-	<td><a href="delete_user.php?user_id=<?=$row['user_id']?>">Delete</a></td>
+	<td><?php  echo $row['user_id']?></td>
+	<td><?php  echo $row['lname']?>, <?php  echo $row['fname']?></td>
+	<td><?php  echo $row['level']?></td>
+	<td><?php  echo $row['username']?>&nbsp;</td>
+	<td><?php  echo $row['password']?>&nbsp;</td>
+	<td><a href="edit_user.php?user_id=<?php  echo $row['user_id']?>">Edit</a></td>
+	<td><a href="delete_user.php?user_id=<?php  echo $row['user_id']?>">Delete</a></td>
 	</td>
 </tr>
-<?
+<?php 
 	}while($row = mysql_fetch_array($results));
 }else{
 ?>
 <tr>
 	<td align="center" colspan="100%">Currently no users on file.</td>
 </tr>
-<?
+<?php 
 }
 ?>
 </table>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

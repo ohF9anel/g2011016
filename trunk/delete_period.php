@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	if(isset($_POST['submit'])){
@@ -22,26 +22,26 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Deleting Time Period</h1>
 <h2>Are you sure you want to delete this time period?</h2>
 <form method="post" action="delete_period.php">
 <table id="box-table-a">
 	<tr>
 		<td align="center">
-		<?=date('m/d/Y', strtotime($start_date))?> to <?=date('m/d/Y', strtotime($end_date))?></td>
+		<?php  echo date('m/d/Y', strtotime($start_date))?> to <?php  echo date('m/d/Y', strtotime($end_date))?></td>
 	</tr>
 	<tr>
-		<td align="center"><input type="hidden" name="period_id" value="<?=$period_id?>">
+		<td align="center"><input type="hidden" name="period_id" value="<?php  echo $period_id?>">
 		<input type="submit" name="submit" value="Delete" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

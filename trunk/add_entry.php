@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	$err = '';
 	if(isset($_POST['submit'])){
@@ -28,19 +28,19 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Adding Time Entry</h1>
 <form method="post" action="add_entry.php">
 <table id="box-table-a">
-<? if(strlen($err) > 0){ ?>
+<?php  if(strlen($err) > 0){ ?>
 <tr>
-	<td align="center" colspan="100%"><?=$err?></td>
+	<td align="center" colspan="100%"><?php  echo $err?></td>
 </tr>
-<? } ?>
+<?php  } ?>
 <tr>
 	<td>Date:&nbsp;</td>
 	<td>
@@ -50,13 +50,13 @@
 	<td>Type:&nbsp;</td>
 	<td>
 		<select name="type_id">
-<? 
+<?php  
 	$tresults = mysql_query("select * from time_types order by description");
 	if($trow = mysql_fetch_array($tresults)){
 		do{
 ?>			
-			<option value="<?=$trow['type_id']?>"><?=$trow['description']?></option>
-<? 
+			<option value="<?php  echo $trow['type_id']?>"><?php  echo $trow['description']?></option>
+<?php  
 		}while($trow = mysql_fetch_array($tresults));
 	}
 ?>
@@ -75,6 +75,6 @@
 </tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

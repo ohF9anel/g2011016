@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	$period_id = $_GET['period_id'];
@@ -13,14 +13,14 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Time Data</h1>
-<h2><a href="time_periods.php?period_id=<?=$period_id?>">Back</a></h2>
+<h2><a href="time_periods.php?period_id=<?php  echo $period_id?>">Back</a></h2>
 
 <table id="box-table-a">
 <thead>
@@ -29,7 +29,7 @@
 		<th>Action</th>
 	</tr>
 </thead>	
-<?
+<?php 
 $uresults = mysql_query("select distinct user_id from time_data where data_date >= '$start_date' and data_date <= '$end_date'");
 if($urow = mysql_fetch_array($uresults)){
 	do{
@@ -40,21 +40,21 @@ if($urow = mysql_fetch_array($uresults)){
 ?>
 <tbody>
 	<tr>
-		<td><?=$drow['lname']?>, <?=$drow['fname']?></td>
-		<td><a href="view_entry.php?period_id=<?=$period_id?>&user_id=<?=$drow['user_id']?>">View</a></td>
+		<td><?php  echo $drow['lname']?>, <?php  echo $drow['fname']?></td>
+		<td><a href="view_entry.php?period_id=<?php  echo $period_id?>&user_id=<?php  echo $drow['user_id']?>">View</a></td>
 	</tr>
-<?
+<?php 
 		}while($urow = mysql_fetch_array($uresults));
 	}else{
 ?>
 	<tr>
 		<td colspan="100%">Currently no time entry on file.</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 </tbody>
 </table>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 if (isset($_POST['username'])) {
 	$username = trim($_POST['username']);
 	}else{
