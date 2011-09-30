@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	if(isset($_POST['submit'])){
@@ -19,7 +19,7 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
@@ -27,10 +27,10 @@
 <h1>Deleting User</h1>
 <h2>Are you sure you want to delete this user?</h2>
 <form method="post" action="delete_user.php">
-<input type="hidden" name="user_id" value="<?=$user_id?>">
+<input type="hidden" name="user_id" value="<?php  echo $user_id?>">
 <table id="box-table-a">
 	<tr>
-		<td align="center"><?=$row['fname']?> <?=$row['lname']?></td>
+		<td align="center"><?php  echo $row['fname']?> <?php  echo $row['lname']?></td>
 	</tr>
 	<tr>
 		<td align="center">
@@ -38,6 +38,6 @@
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

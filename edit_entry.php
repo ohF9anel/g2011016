@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	$err = '';
 	if(isset($_POST['submit'])){
@@ -47,7 +47,7 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
@@ -55,29 +55,29 @@
 <h1>Edit Time Entry</h1>
 <form method="post" action="edit_entry.php">
 <table id="box-table-a">
-<? if(strlen($err) > 0){ ?>
+<?php  if(strlen($err) > 0){ ?>
 <tr>
-	<td align="center" colspan="100%"><?=$err?></td>
+	<td align="center" colspan="100%"><?php  echo $err?></td>
 </tr>
-<? } ?>
+<?php  } ?>
 <tr>
 	<td align="right">Date:&nbsp;</td><td align="left">
-	Month: <input type="text" name="data_month" size="2" value="<?=date('m', strtotime($data_date))?>">&nbsp;
-	Day: <input type="text" name="data_day" size="2" value="<?=date('d', strtotime($data_date))?>">&nbsp;
-	Year: <input type="text" name="data_year" size="4" value="<?=date('Y', strtotime($data_date))?>"></td>
+	Month: <input type="text" name="data_month" size="2" value="<?php  echo date('m', strtotime($data_date))?>">&nbsp;
+	Day: <input type="text" name="data_day" size="2" value="<?php  echo date('d', strtotime($data_date))?>">&nbsp;
+	Year: <input type="text" name="data_year" size="4" value="<?php  echo date('Y', strtotime($data_date))?>"></td>
 </tr>
 <tr>
 	<td align="right">Type:&nbsp;</td>
 	<td>
 		<select name="type_id">
-			<option value="<?=$type_id?>" selected><?=$irow['description']?></option>
-<? 
+			<option value="<?php  echo $type_id?>" selected><?php  echo $irow['description']?></option>
+<?php  
 	$tresults = mysql_query("select * from time_types order by description");
 	if($trow = mysql_fetch_array($tresults)){
 		do{
 ?>			
-			<option value="<?=$trow['type_id']?>"><?=$trow['description']?></option>
-<? 
+			<option value="<?php  echo $trow['type_id']?>"><?php  echo $trow['description']?></option>
+<?php  
 		}while($trow = mysql_fetch_array($tresults));
 	}
 ?>
@@ -85,17 +85,17 @@
 	</td>
 </tr>
 <tr>
-	<td align="right">Hours:&nbsp;</td><td align="left"><input type="text" name="hours" size="4"  value="<?=$row['hours']?>"></td>
+	<td align="right">Hours:&nbsp;</td><td align="left"><input type="text" name="hours" size="4"  value="<?php  echo $row['hours']?>"></td>
 </tr>
 <tr>
-	<td align="right" valign="top">Notes:&nbsp;</td><td align="left"><textarea name="notes" cols="30" rows="3"><?=$row['notes']?></textarea></td>
+	<td align="right" valign="top">Notes:&nbsp;</td><td align="left"><textarea name="notes" cols="30" rows="3"><?php  echo $row['notes']?></textarea></td>
 </tr>
 <tr>
-	<td><input type="hidden" name="time_id" value="<?=$time_id?>"></td>
+	<td><input type="hidden" name="time_id" value="<?php  echo $time_id?>"></td>
 	<td><input type="submit" name="submit" value="Update" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 </tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

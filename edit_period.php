@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	if(isset($_POST['submit'])){
@@ -34,35 +34,35 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Editing Time Period</h1>
 <form method="post" action="edit_period.php">
 <table id="box-table-a">
 	<tr>
 		<td align="right">Start Date:&nbsp;</td>
-		<td align="left">Month:&nbsp;<input type="text" name="start_month" size="2" value="<?=date('m', strtotime($start_date))?>">&nbsp;
-			Day:&nbsp;<input type="text" name="start_day" size="2" value="<?=date('d', strtotime($start_date))?>">&nbsp;
-			Year:&nbsp;<input type="text" name="start_year" size="4" value="<?=date('Y', strtotime($start_date))?>">
+		<td align="left">Month:&nbsp;<input type="text" name="start_month" size="2" value="<?php  echo date('m', strtotime($start_date))?>">&nbsp;
+			Day:&nbsp;<input type="text" name="start_day" size="2" value="<?php  echo date('d', strtotime($start_date))?>">&nbsp;
+			Year:&nbsp;<input type="text" name="start_year" size="4" value="<?php  echo date('Y', strtotime($start_date))?>">
 		</td>
 	</tr>
 	<tr>
 		<td align="right">End Date:&nbsp;</td>
-		<td align="left">Month:&nbsp;<input type="text" name="end_month" size="2" value="<?=date('m', strtotime($end_date))?>">&nbsp;
-			Day:&nbsp;<input type="text" name="end_day" size="2" value="<?=date('d', strtotime($end_date))?>">&nbsp;
-			Year:&nbsp;<input type="text" name="end_year" size="4" value="<?=date('Y', strtotime($end_date))?>">
+		<td align="left">Month:&nbsp;<input type="text" name="end_month" size="2" value="<?php  echo date('m', strtotime($end_date))?>">&nbsp;
+			Day:&nbsp;<input type="text" name="end_day" size="2" value="<?php  echo date('d', strtotime($end_date))?>">&nbsp;
+			Year:&nbsp;<input type="text" name="end_year" size="4" value="<?php  echo date('Y', strtotime($end_date))?>">
 		</td>
 	</tr>
 	<tr>
-		<td><input type="hidden" name="period_id" value="<?=$period_id?>"></td>
+		<td><input type="hidden" name="period_id" value="<?php  echo $period_id?>"></td>
 		<td><input type="submit" name="submit" value="Update" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 // db info (You need to change these to your settings.
 // $db = mysql_connect("localhost", "username goes here", "password goes here") or die(mysql_error());
 //mysql_select_db("database name goes here", $db) or die(mysql_error());

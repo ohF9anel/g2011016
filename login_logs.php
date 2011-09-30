@@ -1,4 +1,4 @@
-<?php
+<?php 
 //$dbi = 1;
 include('auth.php');
 if ($_SESSION['timeapp_level'] <> "Administrator"){
@@ -10,12 +10,12 @@ exit;
 <html>
 <head>
 <title>Main Menu</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?php include "nav.php";?>
+<?php  include "nav.php";?>
 <h1>Login Log</h1>
 <table id="box-table-a">
 <thead>
@@ -26,7 +26,7 @@ exit;
 </tr>
 </thead>
 <tbody>
-<?php
+<?php 
 $myquery = "select * from user_log order by id desc limit 200;";
 $results = mysql_query($myquery);
 $num = mysql_num_rows($results);
@@ -37,13 +37,13 @@ while ($row = mysql_fetch_assoc($results)) {
 	$timestamp = $row['timestamp'];
 ?>
 <tr>
-	<td><?php echo $user_id;?></td>
-	<td><?php echo $loginip;?></td>
-	<td><?php echo $timestamp;?></td>
-<?php } ?>	
+	<td><?php  echo $user_id;?></td>
+	<td><?php  echo $loginip;?></td>
+	<td><?php  echo $timestamp;?></td>
+<?php  } ?>	
 </tbody>
 </table>
 
-<?php include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

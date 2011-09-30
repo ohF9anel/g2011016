@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	$err = '';
 	if(isset($_POST['submit'])){
@@ -26,19 +26,19 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Adding User</h1>
 <form method="post" action="add_user.php">
 <table id="box-table-a">
-<? if(strlen($err) > 0){ ?>
+<?php  if(strlen($err) > 0){ ?>
 	<tr>
-		<td align="center" colspan="100%"><?=$err?></td>
+		<td align="center" colspan="100%"><?php  echo $err?></td>
 	</tr>
-<? } ?>
+<?php  } ?>
 	<tr>
 		<td>First Name:&nbsp;</td><td align="left"><input type="text" name="fname" size="30"></td>
 	</tr>
@@ -65,6 +65,6 @@
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>			
+<?php  include('footer.php')?>			
 </body>
 </html>

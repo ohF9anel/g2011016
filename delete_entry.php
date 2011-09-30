@@ -1,4 +1,4 @@
-<?
+<?php 
 include('auth.php');
 
 if(isset($_POST['submit'])){
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
@@ -29,11 +29,11 @@ if(isset($_POST['submit'])){
 		<td align="center">Are you sure you want to delete this time entry?</td>
 	</tr>
 	<tr>
-		<td align="center"><input type="hidden" name="time_id" value="<?=$time_id?>">
+		<td align="center"><input type="hidden" name="time_id" value="<?php  echo $time_id?>">
 		<input type="submit" name="submit" value="Delete" class="button">&nbsp;<input type="submit" name="cancel" value="Cancel" class="button"></td>
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

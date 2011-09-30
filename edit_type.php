@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	
 	if(isset($_POST['submit'])){
@@ -20,20 +20,20 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Editing Time Type</h1>
 <form method="post" action="edit_type.php">
-<input type="hidden" name="type_id" value="<?=$type_id?>">
+<input type="hidden" name="type_id" value="<?php  echo $type_id?>">
 <table id="box-table-a">
 <thead>
 	<tr>
 		<th>Description:&nbsp;</th>
-		<th><input type="text" name="description" size="50" value="<?=$row['description']?>"></th>
+		<th><input type="text" name="description" size="50" value="<?php  echo $row['description']?>"></th>
 	</tr>
 </thead>
 <tbody>
@@ -44,6 +44,6 @@
 </tbody>
 </table>
 </form>
-<? include('footer.php')?>
+<?php  include('footer.php')?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php 
 	include('auth.php');
 	if(isset($_POST['submit'])){
 		$start_month = $_POST['start_month'];
@@ -26,12 +26,12 @@
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
+<?php include "nav.php";?>
 <h1>Adding Time Period</h1>
 <form method="post" action="add_period.php">
 <table id="box-table-a">
@@ -55,6 +55,6 @@
 	</tr>
 </table>
 </form>
-<? include('footer.php')?>			
+<?php  include('footer.php')?>			
 </body>
 </html>

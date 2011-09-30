@@ -1,4 +1,4 @@
-<?php
+<?php 
 include('auth.php');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,7 +10,7 @@ include('auth.php');
 </head>
 
 <body>
-<?php
+<?php 
 // Create the mysql backup file
 $backupfile = $db_name . date("Y-m-d-i-s") . '.sql';
 echo "<p>Backup file name: $backupfile</p>";

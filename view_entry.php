@@ -1,4 +1,4 @@
-<?
+<?php 
 include('auth.php');
 
 $user_id = $_GET['user_id'];
@@ -18,14 +18,14 @@ $results = mysql_query("select * from time_data where user_id = $user_id and dat
 <html>
 <head>
 <title>Time Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="timeapp.css" type="text/css">
 </head>
 
 <body>
-<?include "nav.php";?>
-<h1>Time Entries for <?=$irow['fname']?> <?=$irow['lname']?></h1>
-<h2><a href="view_data.php?period_id=<?=$period_id?>">Back</a></h2>
+<?php include "nav.php";?>
+<h1>Time Entries for <?php  echo $irow['fname']?> <?php  echo $irow['lname']?></h1>
+<h2><a href="view_data.php?period_id=<?php  echo $period_id?>">Back</a></h2>
 <table id="box-table-a">
 <thead>
 	<tr>
@@ -34,7 +34,7 @@ $results = mysql_query("select * from time_data where user_id = $user_id and dat
 		<th>Hours</th>
 		<th>Notes</th>
 	</tr>
-<?
+<?php 
 	if($row = mysql_fetch_array($results)){
 		do{
 			$data_date = $row['data_date'];
@@ -46,19 +46,19 @@ $results = mysql_query("select * from time_data where user_id = $user_id and dat
 </thead>
 <tbody>
 	<tr>
-		<td><?=date('m/d/Y', strtotime($data_date))?></td>
-		<td><?=$trow['description']?></td>
-		<td><?=$row['hours']?></td>
-		<td><?=$row['notes']?></td>
+		<td><?php  echo date('m/d/Y', strtotime($data_date))?></td>
+		<td><?php  echo $trow['description']?></td>
+		<td><?php  echo $row['hours']?></td>
+		<td><?php  echo $row['notes']?></td>
 	</tr>
-<?
+<?php 
 		}while($row = mysql_fetch_array($results));
 	}else{
 ?>
 	<tr>
 		<td align="center" colspan="100%">Currently no time entry on file.</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 </tbody>
@@ -68,7 +68,7 @@ $results = mysql_query("select * from time_data where user_id = $user_id and dat
 <thead>
 <tr><th colspan="100%">Totals Hours</th></tr>
 </thead>
-<?
+<?php 
 	$total_hours = 0;
 	$total_results = mysql_query("select * from time_types order by type_id");
 	if($ttrow = mysql_fetch_array($total_results)){
@@ -85,16 +85,16 @@ $results = mysql_query("select * from time_data where user_id = $user_id and dat
 ?>
 <tbody>
 	<tr>
-		<td><?=$description?></td><td align="right"><?=$sum_hours?></td>
+		<td><?php  echo $description?></td><td align="right"><?php  echo $sum_hours?></td>
 	</tr>
-<?
+<?php 
 		}while($ttrow = mysql_fetch_array($total_results));
 	}
 ?>
-<tr><td>Total</td><td align="right"><?=$total_hours?></td></tr>
+<tr><td>Total</td><td align="right"><?php  echo $total_hours?></td></tr>
 </tbody>
 </table>
 
-<? include('footer.php')?>			
+<?php  include('footer.php')?>			
 </body>
 </html>
